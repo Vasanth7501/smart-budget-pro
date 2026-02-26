@@ -1104,5 +1104,39 @@ function toggleTheme(){
 }
 function buildAll(){buildI();buildE();buildS();renderBills();}
 </script>
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>My Form</title>
+</head>
+<body>
+
+  <h2>Contact Form</h2>
+
+  <input type="text" id="name" placeholder="Enter Name"><br><br>
+  <input type="text" id="message" placeholder="Enter Message"><br><br>
+  <button onclick="submitData()">Submit</button>
+
+  <!-- JS Code Start -->
+  <script>
+    function submitData() {
+      var name = document.getElementById("name").value;
+      var message = document.getElementById("message").value;
+
+      fetch("https://script.google.com/macros/s/AKfycbwrlrEdU2_XL2lbuSpQPuPF8e1TVpYjknmR1y4ciFUzgLil4S1zt_MC7KwTAytj9kbI/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          message: message
+        })
+      })
+      .then(res => res.text())
+      .then(data => alert("Submitted Successfully"));
+    }
+  </script>
+  <!-- JS Code End -->
+
+</body>
+</html>
 </body>
 </html>
